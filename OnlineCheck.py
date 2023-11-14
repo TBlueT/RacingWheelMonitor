@@ -41,14 +41,14 @@ class AdvancePreparation(threading.Thread):
             self.main.SetText("label", "Download the latest file...")
             time.sleep(1)
             if os.path.isdir('RacingWheelMonitor'):
-                os.system("cp -r /home/pi/RacingWheelMonitor /home/pi/RacingWheelMonitor_BUp")
+                os.system("cp -r -f /home/pi/RacingWheelMonitor /home/pi/RacingWheelMonitor_BUp")
                 shutil.rmtree('RacingWheelMonitor')
             os.system('git clone https://github.com/TBlueT/RacingWheelMonitor.git')
             self.main.SetText("label", "Download completed and run...")
             os.system('python3 /home/pi/RacingWheelMonitor/main.py')
 
             self.main.SetText("label", "Download failed\n backup file restoration...")
-            os.system("cp -r /home/pi/RacingWheelMonitor_BUp /home/pi/RacingWheelMonitor")
+            os.system("cp -r -f /home/pi/RacingWheelMonitor_BUp /home/pi/RacingWheelMonitor")
             os.system('python3 /home/pi/RacingWheelMonitor_BUp/main.py')
 
 def my_exception_hook(exctype, value, traceback):
