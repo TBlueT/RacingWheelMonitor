@@ -5,7 +5,6 @@ from PyQt5 import uic
 
 import socket, shutil, os, sys, time, threading
 
-
 GUI_class = uic.loadUiType('/home/pi/Preliminaries.ui')[0]
 class mainWindow(QMainWindow, GUI_class):
     def __init__(self):
