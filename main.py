@@ -6,7 +6,7 @@ from PyQt5 import uic
 import sys
 
 
-GUI_class = uic.loadUiType('View/pi_ui.ui')[0]
+GUI_class = uic.loadUiType('/home/pi/RacingWheelMonitor/View/pi_ui.ui')[0]
 class mainWindow(QMainWindow, GUI_class):
     def __init__(self):
         super().__init__()
