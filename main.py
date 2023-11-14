@@ -5,6 +5,8 @@ from PyQt5 import uic
 
 import sys
 
+from Service import PreventScreenFromTurningOff
+
 
 GUI_class = uic.loadUiType('/home/pi/RacingWheelMonitor/View/pi_ui.ui')[0]
 class mainWindow(QMainWindow, GUI_class):
@@ -13,6 +15,9 @@ class mainWindow(QMainWindow, GUI_class):
         self.setupUi(self)
         self.showFullScreen()
         #self.show()
+
+        self.PSFTO = PreventScreenFromTurningOff()
+        self.PSFTO.start()
 
 
 
