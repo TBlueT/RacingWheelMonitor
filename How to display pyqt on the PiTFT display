@@ -1,5 +1,8 @@
 How to display pyqt on the PiTFT display.
 
+
+0. Needs to be installed for the first time
+   - sudo apt-get install libudev-dev libinput-dev libts-dev libxcb-xinerama0-dev libxcb-xinerama0
 1. Create a nano Test.sh file
 2. Write the contents below
 
