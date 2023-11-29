@@ -8,22 +8,22 @@ import socket, shutil, os, sys, time, threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse
 
-#GUI_class = uic.loadUiType('/home/pi/Preliminaries.ui')[0]
-# class mainWindow(QMainWindow, GUI_class):
-#     def __init__(self):
-#         super().__init__()
-#         self.setupUi(self)
-#         self.showFullScreen()
-#         #self.show()
-#
-#         self.AP = AdvancePreparation(self)
-#         self.AP.start()
-#
-#     def SetText(self, id:str="", string:str=""):
-#         if id:
-#             getattr(self, id).setText(string)
-#         else:
-#             pass
+GUI_class = uic.loadUiType('/home/pi/Preliminaries.ui')[0]
+class mainWindow(QMainWindow, GUI_class):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.showFullScreen()
+        #self.show()
+
+        self.AP = AdvancePreparation(self)
+        self.AP.start()
+
+    def SetText(self, id:str="", string:str=""):
+        if id:
+            getattr(self, id).setText(string)
+        else:
+            pass
 
 class AdvancePreparation(threading.Thread):
     def __init__(self, parents:object = None):
@@ -37,6 +37,8 @@ class AdvancePreparation(threading.Thread):
         ipaddress = socket.gethostbyname(socket.gethostname())
         if ipaddress == "127.0.0.1":
             self.main.SetText("label", "You are not\n connected to the internet!")
+            time.sleep(1)
+            self.main.SetText("label", "Connect to WiFi\n WiFi name: RacingWheeM\n password: 12345678")
         else:
             self.main.SetText("label", "Internet connected")
             time.sleep(1)
@@ -100,15 +102,12 @@ def my_exception_hook(exctype, value, traceback):
 
 
 if __name__ == "__main__":
-    httpd = HTTPServer(('0.0.0.0', 80), SimpleHTTPRequestHandler)
-    print(f'Server running on port:{80}')
-    httpd.serve_forever()
-    # sys._excepthook = sys.excepthook
-    # sys.excepthook = my_exception_hook
-    #
-    # app = QApplication(sys.argv)
-    # app.aboutToQuit.connect(mainWindow)
-    # MainWindow = mainWindow()
-    # app.exec()
+    sys._excepthook = sys.excepthook
+    sys.excepthook = my_exception_hook
+
+    app = QApplication(sys.argv)
+    app.aboutToQuit.connect(mainWindow)
+    MainWindow = mainWindow()
+    app.exec()
 
 

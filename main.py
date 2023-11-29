@@ -3,7 +3,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5 import uic
 
-import sys
+import sys, os
 
 
 
@@ -12,6 +12,8 @@ class mainWindow(QMainWindow, GUI_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        os.system("cp -f /home/pi/RacingWheelMonitor/OnlineCheck.py /home/pi/OnlineCheck.py")
+
         self.showFullScreen()
         #self.show()
 
