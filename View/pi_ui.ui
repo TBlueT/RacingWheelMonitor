@@ -152,6 +152,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>20</pointsize>
+                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -184,6 +185,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>20</pointsize>
+                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -222,6 +224,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>60</pointsize>
+                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -287,6 +290,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>10</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -319,6 +323,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>25</pointsize>
+                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -354,6 +359,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>10</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -386,6 +392,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>25</pointsize>
+                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -439,6 +446,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>25</pointsize>
+                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -468,6 +476,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>25</pointsize>
+                  <weight>50</weight>
                   <bold>false</bold>
                  </font>
                 </property>
@@ -503,6 +512,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>10</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -541,6 +551,7 @@ background-color: rgb(0, 0, 0);</string>
                  <font>
                   <family>Arial</family>
                   <pointsize>10</pointsize>
+                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
@@ -584,6 +595,7 @@ background-color: rgb(0, 0, 0);</string>
           <property name="font">
            <font>
             <pointsize>10</pointsize>
+            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -642,6 +654,7 @@ background-color: rgb(0, 0, 0);</string>
              <font>
               <family>Arial</family>
               <pointsize>15</pointsize>
+              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -681,6 +694,7 @@ background-color: rgb(0, 0, 0);</string>
              <font>
               <family>Arial</family>
               <pointsize>30</pointsize>
+              <weight>50</weight>
               <bold>false</bold>
              </font>
             </property>
@@ -707,6 +721,7 @@ background-color: rgb(0, 0, 0);</string>
              <font>
               <family>Arial</family>
               <pointsize>15</pointsize>
+              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -758,6 +773,7 @@ background-color: rgb(0, 0, 0);</string>
            <font>
             <family>Arial</family>
             <pointsize>40</pointsize>
+            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
