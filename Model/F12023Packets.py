@@ -7,6 +7,7 @@ class PackedLittleEndianStructure(ctypes.LittleEndianStructure):
 class PacketHeader(PackedLittleEndianStructure):
     _fields_ = [
         ("packetFormat", ctypes.c_uint16),
+        ("gameYear", ctypes.c_uint8),
         ("gameMajorVersion", ctypes.c_uint8),
         ("gameMinorVersion", ctypes.c_uint8),
         ("packetVersion", ctypes.c_uint8),
@@ -14,6 +15,7 @@ class PacketHeader(PackedLittleEndianStructure):
         ("sessionUID", ctypes.c_uint64),
         ("sessionTime", ctypes.c_float),
         ("frameIdentifier", ctypes.c_uint32),
+        ("overallFrameIdentifier", ctypes.c_uint32),
         ("playerCarIndex", ctypes.c_uint8),
         ("secondaryPlayerCarIndex", ctypes.c_uint8)
     ]
@@ -45,22 +47,7 @@ class PacketMotionData(PackedLittleEndianStructure):
     _fields_ = [
         ("header", PacketHeader),
         ("carMotionData", CarMotionData * 22),
-        # Extra player car ONLY data
-        ("suspensionPosition", ctypes.c_float * 4),
-        ("suspensionVelocity", ctypes.c_float * 4),
-        ("suspensionAcceleration", ctypes.c_float * 4),
-        ("wheelSpeed", ctypes.c_float * 4),
-        ("wheelSlip", ctypes.c_float * 4),
-        ("localVelocityX", ctypes.c_float),
-        ("localVelocityY", ctypes.c_float),
-        ("localVelocityZ", ctypes.c_float),
-        ("angularVelocityX", ctypes.c_float),
-        ("angularVelocityY", ctypes.c_float),
-        ("angularVelocityZ", ctypes.c_float),
-        ("angularAccelerationX", ctypes.c_float),
-        ("angularAccelerationY", ctypes.c_float),
-        ("angularAccelerationZ", ctypes.c_float),
-        ("frontWheelsAngle", ctypes.c_float),
+
     ]
 
 
@@ -129,8 +116,17 @@ class PacketSessionData(PackedLittleEndianStructure):
         ("dynamicRacingLain", ctypes.c_uint8),
         ("dynamicRacingLineType", ctypes.c_uint8),
         ("gameMode", ctypes.c_uint8),
-        ("ruleSet", ctypes.c_uint32),
+        ("ruleSet", ctypes.c_uint8),
+        ("timeOfDay", ctypes.c_uint32),
         ("sessionLength", ctypes.c_uint8),
+
+        ("m_speedUnitsLeadPlayer", ctypes.c_uint8),
+        ("m_temperatureUnitsLeadPlayer", ctypes.c_uint8),
+        ("m_speedUnitsSecondaryPlayer", ctypes.c_uint8),
+        ("m_temperatureUnitsSecondaryPlayer", ctypes.c_uint8),
+        ("m_numSafetyCarPeriods", ctypes.c_uint8),
+        ("m_numVirtualSafetyCarPeriods", ctypes.c_uint8),
+        ("m_numRedFlagPeriods", ctypes.c_uint8),
     ]
 
 class LapData(PackedLittleEndianStructure):
@@ -139,7 +135,11 @@ class LapData(PackedLittleEndianStructure):
         ("lastLapTime", ctypes.c_uint32),
         ("currentLapTime", ctypes.c_uint32),
         ("sector1TimeInMS", ctypes.c_uint16),
+        ("sector1TimeMinutes", ctypes.c_uint8),
         ("sector2TimeInMS", ctypes.c_uint16),
+        ("sector2TimeMinutes", ctypes.c_uint8),
+        ("deltaToCarInFrontInMS", ctypes.c_uint16),
+        ("deltaToRaceLeaderInMS", ctypes.c_uint16),
         ("lapDistance", ctypes.c_float),
         ("totalDistance", ctypes.c_float),
         ("safetyCarDelta", ctypes.c_float),
@@ -150,7 +150,8 @@ class LapData(PackedLittleEndianStructure):
         ("sector", ctypes.c_uint8),
         ("currentLapInvalid", ctypes.c_uint8),
         ("penalties", ctypes.c_uint8),
-        ("warnings", ctypes.c_uint8),
+        ("totalWarnings", ctypes.c_uint8),
+        ("cornerCuttingWarnings", ctypes.c_uint8),
         ("numUnservedDriveThroughPens", ctypes.c_uint8),
         ("numUnservedStopGoPens", ctypes.c_uint8),
         ("gridPosition", ctypes.c_uint8),
@@ -220,6 +221,9 @@ class CarStatusData(PackedLittleEndianStructure):
         ("visualTyreCompound", ctypes.c_uint8),
         ("tyresAgeLaps", ctypes.c_uint8),
         ("vehicleFiaFlags", ctypes.c_int8),
+
+        ("enginePowerICE", ctypes.c_float),
+        ("enginePowerMGUK", ctypes.c_float),
         ("ersStoreEnergy", ctypes.c_float),
         ("ersDeployMode", ctypes.c_uint8),
         ("ersHarvestedThisLapMGUK", ctypes.c_float),
@@ -294,13 +298,13 @@ class PacketFinalClassificationData(PackedLittleEndianStructure):
     ]
 
 PacketType = {
-    (2022, 1, 0): PacketMotionData,
-    (2022, 1, 1): PacketSessionData,
-    (2022, 1, 2): PacketLapData,
-    (2022, 1, 6): PacketCarTelemetryData,
-    (2022, 1, 7): PacketCarStatusData,
-    (2022, 1, 8): PacketFinalClassificationData,
-    (2022, 1, 10): PacketCarDamageData
+    (2023, 1, 0): PacketMotionData,
+    (2023, 1, 1): PacketSessionData,
+    (2023, 1, 2): PacketLapData,
+    (2023, 1, 6): PacketCarTelemetryData,
+    (2023, 1, 7): PacketCarStatusData,
+    (2023, 1, 8): PacketFinalClassificationData,
+    (2023, 1, 10): PacketCarDamageData
 }
 
 
