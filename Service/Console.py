@@ -24,7 +24,8 @@ class Console(threading.Thread):
         while True:
             temp_time = time.time()
             if temp_time - self.__printTime > self.__printTimeSet:
-                print(self.PrintWaitiong)
+                if self.__PrintWaitiong != []:
+                    print(self.PrintWaitiong)
 
                 self.__printTime = temp_time
             time.sleep(0.008)
