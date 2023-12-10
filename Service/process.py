@@ -74,7 +74,6 @@ class Process(QtCore.QThread):
             try:
                 data, addr = self.sock.recvfrom(1500)
                 buf = unpack_udp_packet(data)
-                print(buf)
             except:
                 pass
             if buf:
