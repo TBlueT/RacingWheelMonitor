@@ -10,7 +10,7 @@ class UPA(threading.Thread):
     Set_StyleSheet = QtCore.pyqtSignal(str, str)
     Set_page = QtCore.pyqtSignal(int)
     def __init__(self, parent=None):
-        super(UPA, self).__init__(self)
+        super(UPA, self).__init__()
         self.Working = True
         self.mainWindow = parent
 
