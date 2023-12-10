@@ -6,7 +6,7 @@ from PyQt5 import QtCore, QtGui, QtTest
 from blinkt import DAT, CLK, set_pixel, show
 
 import socket, time, datetime
-from packets import *
+from Model import *
 
 
 class Process(QtCore.QThread):
