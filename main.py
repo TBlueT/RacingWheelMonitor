@@ -15,8 +15,8 @@ class mainWindow(QMainWindow, GUI_class):
         self.setupUi(self)
         os.system("cp -f /home/pi/RacingWheelMonitor/OnlineCheck.py /home/pi/OnlineCheck.py")
 
-        self.console = Console()
-        self.console.start()
+        # self.console = Console()
+        # self.console.start()
 
         self.L = LedBr()  # LED bar output processing.
         self.data_process = Process(self)  # UDP data processing and various data processing.
