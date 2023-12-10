@@ -19,14 +19,14 @@ class mainWindow(QMainWindow, GUI_class):
         self.console = Console()
         self.console.start()
 
-        self.L = LedBr()
-        self.upa = UPA(self)
-        self.upa.Set_Text.connect(self.Set_Text)
-        self.upa.Set_Pixmap.connect(self.Set_Pixmap)
-        self.upa.Set_StyleSheet.connect(self.Set_StyleSheet)
-        self.upa.Set_page.connect(self.Set_page)
+        self.L = LedBr()  # LED bar output processing.
+        self.data_process = Process(self)  # UDP data processing and various data processing.
+        self.data_process.Set_Text.connect(self.Set_Text)
+        self.data_process.Set_Pixmap.connect(self.Set_Pixmap)
+        self.data_process.Set_StyleSheet.connect(self.Set_StyleSheet)
+        self.data_process.Set_page.connect(self.Set_page)
         self.L.start()
-        self.upa.start()
+        self.data_process.start()
 
 
         self.showFullScreen()

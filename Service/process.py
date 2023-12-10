@@ -1,17 +1,22 @@
-import socket, threading, time
+# -*- coding: utf-8 -*-
+
+import datetime, time
 import numpy as np
-
 from PyQt5 import QtCore, QtGui, QtTest
+from blinkt import DAT, CLK, set_pixel, show
 
-from Model import *
+import socket, time, datetime
+from packets import *
 
-class UPA(threading.Thread):
+
+class Process(QtCore.QThread):
     Set_Text = QtCore.pyqtSignal(str, str)
     Set_Pixmap = QtCore.pyqtSignal(str, QtGui.QPixmap)
     Set_StyleSheet = QtCore.pyqtSignal(str, str)
     Set_page = QtCore.pyqtSignal(int)
+
     def __init__(self, parent=None):
-        super(UPA, self).__init__(parent)
+        super(Process, self).__init__(parent)
         self.Working = True
         self.mainWindow = parent
 
