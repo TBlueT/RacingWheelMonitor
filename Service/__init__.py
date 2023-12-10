@@ -1,3 +1,3 @@
-from Console import *
-from LEDBar import *
-from UdpPacketAnalysis import *
+from .Console import *
+from .LEDBar import *
+from .UdpPacketAnalysis import *
