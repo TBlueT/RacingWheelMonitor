@@ -17,18 +17,21 @@ class mainWindow(QMainWindow, GUI_class):
         self.setupUi(self)
         #os.system("cp -f /home/pi/RacingWheelMonitor/OnlineCheck.py /home/pi/OnlineCheck.py")
 
+        # self.showFullScreen()
+        self.show()
+
         self.UdpPacketAnalysis_S = UdpPacketAnalysisService()
 
-        self.DisplayManagement_VM = DisplayManagementViewModel()
+        self.DisplayManagement_VM = DisplayManagementViewModel(self)
         self.DisplayManagement_VM.Set_Text.connect(self.Set_Text)
         self.DisplayManagement_VM.Set_Pixmap.connect(self.Set_Pixmap)
         self.DisplayManagement_VM.Set_StyleSheet.connect(self.Set_StyleSheet)
         self.DisplayManagement_VM.Set_page.connect(self.Set_page)
 
-        self.DisplayManagement_VM.start()
+        print(self.RPMBar.size().width(), self.RPMBar.size().height())
 
-        #self.showFullScreen()
-        self.show()
+
+        self.DisplayManagement_VM.start()
 
     @pyqtSlot(str, str)
     def Set_Text(self, object, data):  # Text display data storage function.
