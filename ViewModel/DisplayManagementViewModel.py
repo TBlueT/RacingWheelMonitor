@@ -117,7 +117,6 @@ class DisplayManagementViewModel(QtCore.QThread):
 
         if self.ViewDataStorageM.ersDeployed != self.ViewDataStorageM_Comparison.ersDeployed:
             self.ImageP.ERS_Deploted_Fill(self.ViewDataStorageM.ersDeployed)
-            print(self.ViewDataStorageM.ersDeployed)
             self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
             self.ViewDataStorageM_Comparison.ersDeployed = self.ViewDataStorageM.ersDeployed
 
@@ -142,3 +141,5 @@ class DisplayManagementViewModel(QtCore.QThread):
             self.ViewDataStorageM_Comparison.tireDamage = self.ViewDataStorageM.tireDamage
 
 
+    def map(self, x, in_min, in_max, out_min, out_max):
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
