@@ -6,7 +6,7 @@ class ViewDataStorageModel:
         gear: int = 0
         rpm: int = 0
         drs: bool = False
-        tireTemperature: list[int] = (0, 0, 0, 0)
+        tireTemperature = [0, 0, 0, 0]
 
 
         maxRpm: int = 0
@@ -18,7 +18,7 @@ class ViewDataStorageModel:
         lapAll: int = 0
         lapTime: float = 0.0
 
-        tireDamage: list[int] = (0, 0, 0, 0)
+        tireDamage = [0, 0, 0, 0]
 
 
 
