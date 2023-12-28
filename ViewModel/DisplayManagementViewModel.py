@@ -46,6 +46,7 @@ class DisplayManagementViewModel(QtCore.QThread):
 
     def PacketCarTelemetryData(self):
         self.ImageP.RPMBar_RpmFill(self.ViewDataStorageM.rpm)
+        print(self.ViewDataStorageM.rpm)
         self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
 
     def PacketCarStatusData(self):
