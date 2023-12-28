@@ -39,7 +39,7 @@ class BarImg:
         temp_barLength = int(self.size[0]/self.maxRpm*fill)
 
         if reversal:
-            start_point_1 = (int(self.size[0]-temp_barLength), 0)
+            start_point_1 = (int(self.size[0]-(self.size[0]-temp_barLength)), 0)
             end_point_1 = (int(self.size[0]), int(self.size[1]))
         else:
             start_point_1 = (0, 0)
