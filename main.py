@@ -9,16 +9,16 @@ from Service import *
 from ViewModel import *
 
 
-#GUI_class = uic.loadUiType('/home/pi/RacingWheelMonitor/View/pi_ui.ui')[0]
-GUI_class = uic.loadUiType('View/RacingWheelMonitorView.ui')[0]
+GUI_class = uic.loadUiType('/home/pi/RacingWheelMonitor/View/pi_ui.ui')[0]
+#GUI_class = uic.loadUiType('View/RacingWheelMonitorView.ui')[0]
 class mainWindow(QMainWindow, GUI_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        #os.system("cp -f /home/pi/RacingWheelMonitor/OnlineCheck.py /home/pi/OnlineCheck.py")
+        os.system("cp -f /home/pi/RacingWheelMonitor/OnlineCheck.py /home/pi/OnlineCheck.py")
 
-        # self.showFullScreen()
-        self.show()
+        self.showFullScreen()
+        #self.show()
 
         self.UdpPacketAnalysis_S = UdpPacketAnalysisService()
 
