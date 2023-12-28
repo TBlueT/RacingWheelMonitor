@@ -32,9 +32,8 @@ class BarImg:
             self.__img = cv2.line(self.__img, start_point_2, end_point_2, temp_color, 2)
 
     def setMaxbar(self, maxRpm):
-        if self.maxRpm:
-            if maxRpm!=0:
-                self.maxRpm = maxRpm
+        if maxRpm!=0:
+            self.maxRpm = maxRpm
 
     def barFill(self, fill:int):
         temp_barLength = int(self.size[0]/self.maxRpm*fill)
