@@ -13,7 +13,7 @@ class UdpPacketAnalysisService(QtCore.QThread):
 
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
-        self.ViewDataStorageM.f1_22_pi_ip = str(s.getsockname()[0])
+        self.ViewDataStorageM.f1_24_pi_ip = str(s.getsockname()[0])
         s.close()
 
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
