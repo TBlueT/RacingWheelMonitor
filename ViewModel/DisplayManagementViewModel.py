@@ -42,7 +42,9 @@ class DisplayManagementViewModel(QtCore.QThread):
         self.ImageP.RPMBar_setMaxRpm(self.ViewDataStorageM.maxRpm)
 
     def PacketLapData(self):
-        pass
+        self.Current_Lap()
+        self.CurrentLapTime()
+
 
     def CurrentLapTime(self):
         CurrentLapTime = datetime.datetime.utcfromtimestamp(
@@ -54,7 +56,6 @@ class DisplayManagementViewModel(QtCore.QThread):
         CurrentLapTime_microsecond = F"{str(CurrentLapTime.microsecond)[0:3]}"
         self.Set_Text.emit("LapTimeText",
                            F"{CurrentLapTime_hour}{CurrentLapTime_minute}{CurrentLapTime_second}{CurrentLapTime_microsecond}")
-        print(F"{CurrentLapTime_hour}{CurrentLapTime_minute}{CurrentLapTime_second}{CurrentLapTime_microsecond}")
         self.Set_Text.emit("LapsText", F"{self.ViewDataStorageM.lap}/{self.ViewDataStorageM.lapAll}")
 
 
