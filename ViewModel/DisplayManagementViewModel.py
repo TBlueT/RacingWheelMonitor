@@ -54,7 +54,7 @@ class DisplayManagementViewModel(QtCore.QThread):
         CurrentLapTime_microsecond = F"{str(CurrentLapTime.microsecond)[0:3]}"
         self.Set_Text.emit("LapTimeText",
                            F"{CurrentLapTime_hour}{CurrentLapTime_minute}{CurrentLapTime_second}{CurrentLapTime_microsecond}")
-
+        print(F"{CurrentLapTime_hour}{CurrentLapTime_minute}{CurrentLapTime_second}{CurrentLapTime_microsecond}")
         self.Set_Text.emit("LapsText", F"{self.ViewDataStorageM.lap}/{self.ViewDataStorageM.lapAll}")
 
 
