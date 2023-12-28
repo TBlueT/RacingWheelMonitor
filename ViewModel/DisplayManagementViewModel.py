@@ -46,8 +46,7 @@ class DisplayManagementViewModel(QtCore.QThread):
 
 
     def CurrentLapTime(self):
-        CurrentLapTime = datetime.datetime.utcfromtimestamp(
-            self.ViewDataStorageM.lapTime / 1000.0)
+        CurrentLapTime = self.ViewDataStorageM.lapTime
 
         CurrentLapTime_hour = F"{CurrentLapTime.hour}:" if CurrentLapTime.hour >= 10 else F"0{CurrentLapTime.hour}:" if CurrentLapTime.hour != 0 else ""
         CurrentLapTime_minute = F"{CurrentLapTime.minute}:" if CurrentLapTime.minute >= 10 else F"0{CurrentLapTime.minute}:" if CurrentLapTime.minute != 0 or CurrentLapTime.hour != 0 else ""
