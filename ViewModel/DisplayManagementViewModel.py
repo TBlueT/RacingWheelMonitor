@@ -69,7 +69,7 @@ class DisplayManagementViewModel(QtCore.QThread):
 
         for i in range(0, 4):
             self.Set_Text.emit(F"TyresSurfaceTemperature_{i + 1}_Text",
-                               F"{self.ViewDataStorageM.tireTemperature}'C")
+                               F"{self.ViewDataStorageM.tireTemperature[i]}'C")
 
         self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
 
