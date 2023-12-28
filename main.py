@@ -20,7 +20,7 @@ class mainWindow(QMainWindow, GUI_class):
         self.showFullScreen()
         #self.show()
 
-        self.UdpPacketAnalysis_S = UdpPacketAnalysisService()
+
 
         self.DisplayManagement_VM = DisplayManagementViewModel(self)
         self.DisplayManagement_VM.Set_Text.connect(self.Set_Text)
@@ -28,6 +28,8 @@ class mainWindow(QMainWindow, GUI_class):
         self.DisplayManagement_VM.Set_StyleSheet.connect(self.Set_StyleSheet)
         self.DisplayManagement_VM.Set_page.connect(self.Set_page)
 
+        self.UdpPacketAnalysis_S = UdpPacketAnalysisService(self)
+        self.UdpPacketAnalysis_S.start()
         #print(self.RPMBar.size().width(), self.RPMBar.size().height())
 
 
