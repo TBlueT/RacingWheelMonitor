@@ -13,7 +13,7 @@ class DisplayManagementViewModel(QtCore.QThread):
     def __init__(self, parent=None):
         super(DisplayManagementViewModel, self).__init__()
 
-        self.mainUi = parent
+        self.ViewDataStorageM = parent.ViewDataStorageM
         self.ImageP = ImageProcessing(self.mainUi)
 
     # def RPMBar_SetMaxRPM(self, maxRpm:int):
@@ -39,12 +39,13 @@ class DisplayManagementViewModel(QtCore.QThread):
         pass
 
     def PacketSessionData(self):
-        pass
+        self.ImageP.RPMBar_setMaxRpm(self.ViewDataStorageM.maxRpm)
 
     def PacketLapData(self):
         pass
 
     def PacketCarTelemetryData(self):
+        self.ImageP.RPMBar_RpmFill(self.ViewDataStorageM.rpm)
         self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
 
     def PacketCarStatusData(self):
