@@ -68,6 +68,7 @@ class UdpPacketAnalysisService(QtCore.QThread):
                                                         int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[2]),
                                                         int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[3]),
                                                         ]
+                self.ck_game_udp_time = time.time()
             else:
                 if time.time() - self.ck_game_udp_time > self.ck_game_udp_out_time:
                     self.ViewDataStorageM.f1_24_pi_ip_bool = True
