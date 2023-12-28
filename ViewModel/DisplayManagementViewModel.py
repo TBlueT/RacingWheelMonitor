@@ -89,7 +89,7 @@ class DisplayManagementViewModel(QtCore.QThread):
         self.Set_Text.emit("RES_Mode", F"{ersDeployMode_text[ersDeployMode_num]}")
 
         self.ImageP.ERS_Store_Fill(self.ViewDataStorageM.ersStore)
-        self.ImageP.ERS_Store_Fill(self.ViewDataStorageM.ersDeployed)
+        self.ImageP.ERS_Deploted_Fill(self.ViewDataStorageM.ersDeployed)
 
         self.Set_Pixmap.emit("ERS_Store", self.ImageP.ERS_Store_GetImg())
         self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
