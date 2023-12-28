@@ -49,7 +49,15 @@ class UdpPacketAnalysisService(QtCore.QThread):
                     self.ViewDataStorageM.gear = int(buf.carTelemetryData[buf.header.playerCarIndex].gear)
                     self.ViewDataStorageM.rpm = int(buf.carTelemetryData[buf.header.playerCarIndex].engineRPM)
                     self.ViewDataStorageM.drs = int(buf.carTelemetryData[buf.header.playerCarIndex].drs)
-                    self.ViewDataStorageM.tireTemperature = int(buf.carTelemetryData[buf.header.playerCarIndex].tyresSurfaceTemperature)
+                    self.ViewDataStorageM.tireTemperature = [int(buf.carTelemetryData[buf.header.playerCarIndex].tyresSurfaceTemperature[0]),
+                                                             int(buf.carTelemetryData[buf.header.playerCarIndex].tyresSurfaceTemperature[1]),
+                                                             int(buf.carTelemetryData[buf.header.playerCarIndex].tyresSurfaceTemperature[2]),
+                                                             int(buf.carTelemetryData[buf.header.playerCarIndex].tyresSurfaceTemperature[3])
+                                                             ]
 
-                # elif buf.header.packetId == 10:
-                #     self.ViewDataStorageM.tireDamage = int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear)
+                elif buf.header.packetId == 10:
+                    self.ViewDataStorageM.tireDamage = [int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[0]),
+                                                        int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[1]),
+                                                        int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[2]),
+                                                        int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[3]),
+                                                        ]
