@@ -50,11 +50,23 @@ class DisplayManagementViewModel(QtCore.QThread):
         self.Set_Text.emit("SpeedText", F"{self.ViewDataStorageM.speed}")
 
         Gear = self.ViewDataStorageM.gear
-        Gear = F"{Gear}" if self.ViewDataStorageM.gear > 0 else "N" if Gear != -1 else "R"
+        Gear = F"{Gear}" if Gear > 0 else "N" if Gear != -1 else "R"
         self.Set_Text.emit("GearText", F"{Gear}")
+
+        drs = self.ViewDataStorageM.drs
+        if drs:
+            self.Set_StyleSheet.emit("Drs_led", "color: rgb(255, 255, 255);background-color: rgb(0, 255, 0);")
+
         self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
 
     def PacketCarStatusData(self):
+        drs_allowed = self.ViewDataStorageM.drsAllowed
+        drs = self.ViewDataStorageM.drs
+        if (not drs) and (drs_allowed == 1):
+            self.Set_StyleSheet.emit("DRSLED", "color: rgb(255, 255, 255);background-color: rgb(255, 0, 0);")
+        elif (not drs) and (drs_allowed == 0):
+            self.Set_StyleSheet.emit("DRSLED", "color: rgb(255, 255, 255);background-color: rgb(0, 0, 0);")
+
         self.Set_Pixmap.emit("ERS_Store", self.ImageP.ERS_Store_GetImg())
         self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
 

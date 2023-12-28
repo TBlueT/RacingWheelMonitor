@@ -6,6 +6,7 @@ class ViewDataStorageModel:
         gear: int = 0
         rpm: int = 0
         drs: bool = False
+        drsAllowed: bool = False
         tireTemperature = [0, 0, 0, 0]
 
 
