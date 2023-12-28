@@ -48,7 +48,7 @@ class mainWindow(QMainWindow, GUI_class):
 
     @pyqtSlot(int)
     def Set_page(self, page):
-        self.stackedWidget_4.setCurrentIndex(page)
+        self.Page.setCurrentIndex(page)
 
 
 
