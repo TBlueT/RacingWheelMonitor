@@ -3,6 +3,7 @@ import time, datetime
 from PyQt5 import QtCore, QtGui, QtTest
 
 from ViewModel.ImageProcessing import ImageProcessing
+from Model.ViewDataStorageModel import ViewDataStorageModel
 
 class DisplayManagementViewModel(QtCore.QThread):
     Set_Text = QtCore.pyqtSignal(str, str)
@@ -14,7 +15,7 @@ class DisplayManagementViewModel(QtCore.QThread):
         super(DisplayManagementViewModel, self).__init__()
 
         self.ViewDataStorageM = parent.ViewDataStorageM
-        self.ViewDataStorageM_Comparison = parent.ViewDataStorageModel()
+        self.ViewDataStorageM_Comparison = ViewDataStorageModel()
         self.ImageP = ImageProcessing(parent)
 
     # def RPMBar_SetMaxRPM(self, maxRpm:int):
