@@ -20,7 +20,7 @@ class mainWindow(QMainWindow, GUI_class):
         self.showFullScreen()
         #self.show()
 
-
+        self.ViewDataStorageM = ViewDataStorageModel()
 
         self.DisplayManagement_VM = DisplayManagementViewModel(self)
         self.DisplayManagement_VM.Set_Text.connect(self.Set_Text)
@@ -33,7 +33,7 @@ class mainWindow(QMainWindow, GUI_class):
         #print(self.RPMBar.size().width(), self.RPMBar.size().height())
 
 
-        self.DisplayManagement_VM.start()
+        #self.DisplayManagement_VM.start()
 
     @pyqtSlot(str, str)
     def Set_Text(self, object, data):  # Text display data storage function.

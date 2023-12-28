@@ -1,4 +1,4 @@
-import socket, time
+import socket, time, datetime
 
 from PyQt5 import QtCore, QtGui, QtTest
 
@@ -9,7 +9,7 @@ class UdpPacketAnalysisService(QtCore.QThread):
     def __init__(self, parent=None):
         super(UdpPacketAnalysisService, self).__init__()
 
-        self.DisplayManagement_VM = parent.DisplayManagement_VM
+        self.ViewDataStorageM = parent.ViewDataStorageM
 
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
@@ -30,8 +30,26 @@ class UdpPacketAnalysisService(QtCore.QThread):
                 pass
 
             if buf:
-                if buf.header.packetId == 7:
-                    self.DisplayManagement_VM.ImageP.RPMBar_setMaxRpm(int(buf.carStatusData[buf.header.playerCarIndex].maxRPM))
-                    #print(buf.carStatusData[buf.header.playerCarIndex].maxRPM)
+                if buf.header.packetId == 1:
+                    self.ViewDataStorageM.lapAll = int(buf.totalLaps)
+
+                elif buf.header.packetId == 2:
+                    self.ViewDataStorageM.lap = int(buf.lapData[buf.header.playerCarIndex].currentLapNum)
+                    self.ViewDataStorageM.lapTime = datetime.datetime.utcfromtimestamp(
+                        buf.lapData[buf.header.playerCarIndex].currentLapTime / 1000.0)
+
+                elif buf.header.packetId == 7:
+                    self.ViewDataStorageM.maxRpm = int(buf.carStatusData[buf.header.playerCarIndex].maxRPM)
+                    self.ViewDataStorageM.ersStore = int(buf.carStatusData[buf.header.playerCarIndex].ersStoreEnergy)
+                    self.ViewDataStorageM.ersDeployed = int(buf.carStatusData[buf.header.playerCarIndex].ersDeployedThisLap)
+                    self.ViewDataStorageM.ersDeployMode = int(buf.carStatusData[buf.header.playerCarIndex].ersDeployMode)
+
                 elif buf.header.packetId == 6:
-                    self.DisplayManagement_VM.ImageP.RPMBar_RpmFill(int(buf.carTelemetryData[buf.header.playerCarIndex].engineRPM))
+                    self.ViewDataStorageM.speed = int(buf.carTelemetryData[buf.header.playerCarIndex].speed)
+                    self.ViewDataStorageM.gear = int(buf.carTelemetryData[buf.header.playerCarIndex].gear)
+                    self.ViewDataStorageM.rpm = int(buf.carTelemetryData[buf.header.playerCarIndex].engineRPM)
+                    self.ViewDataStorageM.drs = int(buf.carTelemetryData[buf.header.playerCarIndex].drs)
+                    self.ViewDataStorageM.tireTemperature = int(buf.carTelemetryData[buf.header.playerCarIndex].tyresSurfaceTemperature)
+
+                elif buf.header.packetId == 10:
+                    self.ViewDataStorageM.tireDamage = int(buf.CarDamageData[buf.header.playerCarIndex].tyresDamage)

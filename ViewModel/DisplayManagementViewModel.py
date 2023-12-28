@@ -25,7 +25,34 @@ class DisplayManagementViewModel(QtCore.QThread):
         while True:
             temp_time = time.time()
             if temp_time - self.DisplayUpdateTime > self.DisplayUpdateTimeSet:
-                self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
-                self.Set_Pixmap.emit("ERS_Store", self.ImageP.ERS_Store_GetImg())
-                self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
+                self.PacketMotionData()
+                self.PacketSessionData()
+                self.PacketLapData()
+                self.PacketCarTelemetryData()
+                self.PacketCarStatusData()
+                self.PacketFinalClassificationData()
+                self.PacketCarDamageData()
+
                 self.DisplayUpdateTime = temp_time
+
+    def PacketMotionData(self):
+        pass
+
+    def PacketSessionData(self):
+        pass
+
+    def PacketLapData(self):
+        pass
+
+    def PacketCarTelemetryData(self):
+        self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
+
+    def PacketCarStatusData(self):
+        self.Set_Pixmap.emit("ERS_Store", self.ImageP.ERS_Store_GetImg())
+        self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
+
+    def PacketFinalClassificationData(self):
+        pass
+
+    def PacketCarDamageData(self):
+        pass
