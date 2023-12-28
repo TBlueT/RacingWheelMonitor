@@ -38,7 +38,6 @@ class BarImg:
 
     def barFill(self, fill:int):
         temp_barLength = int(self.size[0]/self.maxRpm*fill)
-        print(temp_barLength)
 
         start_point_1 = (0, 0)
         end_point_1 = (temp_barLength, int(self.size[1]))
