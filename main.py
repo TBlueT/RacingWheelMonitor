@@ -9,7 +9,7 @@ from Service import *
 from ViewModel import *
 
 
-GUI_class = uic.loadUiType('/home/pi/RacingWheelMonitor/View/pi_ui.ui')[0]
+GUI_class = uic.loadUiType('/home/pi/RacingWheelMonitor/View/RacingWheelMonitorView.ui')[0]
 #GUI_class = uic.loadUiType('View/RacingWheelMonitorView.ui')[0]
 class mainWindow(QMainWindow, GUI_class):
     def __init__(self):
@@ -28,7 +28,7 @@ class mainWindow(QMainWindow, GUI_class):
         self.DisplayManagement_VM.Set_StyleSheet.connect(self.Set_StyleSheet)
         self.DisplayManagement_VM.Set_page.connect(self.Set_page)
 
-        print(self.RPMBar.size().width(), self.RPMBar.size().height())
+        #print(self.RPMBar.size().width(), self.RPMBar.size().height())
 
 
         self.DisplayManagement_VM.start()
