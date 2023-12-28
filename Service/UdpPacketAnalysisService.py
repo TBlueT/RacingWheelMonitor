@@ -13,12 +13,16 @@ class UdpPacketAnalysisService(QtCore.QThread):
 
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(("8.8.8.8", 80))
-        self.f1_22_pi_ip = str(s.getsockname()[0])
+        self.ViewDataStorageM.f1_22_pi_ip = str(s.getsockname()[0])
         s.close()
 
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.sock.bind(('0.0.0.0', 20777))
         self.sock.settimeout(0.5)
+
+        self.ck_game_start: bool = False
+        self.ck_game_udp_time = time.time()
+        self.ck_game_udp_out_time: int = 5
 
     def run(self):
         while True:
@@ -30,6 +34,9 @@ class UdpPacketAnalysisService(QtCore.QThread):
                 pass
 
             if buf:
+                if self.ViewDataStorageM.f1_24_pi_ip_bool:
+                    self.ViewDataStorageM.f1_24_pi_ip_bool = False
+
                 if buf.header.packetId == 1:
                     self.ViewDataStorageM.lapAll = int(buf.totalLaps)
 
@@ -61,3 +68,7 @@ class UdpPacketAnalysisService(QtCore.QThread):
                                                         int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[2]),
                                                         int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear[3]),
                                                         ]
+            else:
+                if time.time() - self.ck_game_udp_time > self.ck_game_udp_out_time:
+                    self.ViewDataStorageM.f1_24_pi_ip_bool = True
+                    self.ck_game_udp_time = time.time()

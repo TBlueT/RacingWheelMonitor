@@ -25,6 +25,13 @@ class DisplayManagementViewModel(QtCore.QThread):
 
     def run(self):
         while True:
+            if self.ViewDataStorageM.f1_24_pi_ip_bool != self.ViewDataStorageM_Comparison.f1_24_pi_ip_bool:
+                if self.ViewDataStorageM.f1_24_pi_ip_bool:
+                    self.F1_23_pi_ip_view()
+                else:
+                    self.Set_page.emit(1)
+                self.ViewDataStorageM_Comparison.f1_24_pi_ip_bool = self.ViewDataStorageM.f1_24_pi_ip_bool
+
             self.PacketMotionData()
             self.PacketSessionData()
             self.PacketLapData()
@@ -33,7 +40,15 @@ class DisplayManagementViewModel(QtCore.QThread):
             self.PacketFinalClassificationData()
             self.PacketCarDamageData()
 
+
+
             time.sleep(0.001)
+
+    def F1_23_pi_ip_view(self):
+        self.Set_page.emit(0)
+        ck_ip = self.ViewDataStorageM.f1_24_pi_ip
+        ck_ip = "No internet connection." if ck_ip in ["127.0.0.1", "127.0.1.1"] else F"iP: {ck_ip}"
+        self.Set_Text.emit("ip_Text", ck_ip)
 
     def PacketMotionData(self):
         pass

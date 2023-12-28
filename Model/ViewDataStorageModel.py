@@ -2,6 +2,8 @@ from dataclasses import dataclass
 
 @dataclass()
 class ViewDataStorageModel:
+        f1_24_pi_ip: str = ""
+        f1_24_pi_ip_bool: bool = False
         speed: int = 0
         gear: int = 0
         rpm: int = 0
