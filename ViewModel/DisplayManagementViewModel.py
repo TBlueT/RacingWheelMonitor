@@ -18,7 +18,7 @@ class DisplayManagementViewModel(QtCore.QThread):
 
     # def RPMBar_SetMaxRPM(self, maxRpm:int):
     #     self.ImageP.
-        self.DisplayUpdateTimeSet = 0.01
+        self.DisplayUpdateTimeSet = 0.001
         self.DisplayUpdateTime = time.time()
 
     def run(self):
