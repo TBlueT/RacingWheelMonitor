@@ -25,17 +25,15 @@ class DisplayManagementViewModel(QtCore.QThread):
 
     def run(self):
         while True:
-            temp_time = time.time()
-            if temp_time - self.DisplayUpdateTime > self.DisplayUpdateTimeSet:
-                self.PacketMotionData()
-                self.PacketSessionData()
-                self.PacketLapData()
-                self.PacketCarTelemetryData()
-                self.PacketCarStatusData()
-                self.PacketFinalClassificationData()
-                self.PacketCarDamageData()
+            self.PacketMotionData()
+            self.PacketSessionData()
+            self.PacketLapData()
+            self.PacketCarTelemetryData()
+            self.PacketCarStatusData()
+            self.PacketFinalClassificationData()
+            self.PacketCarDamageData()
 
-                self.DisplayUpdateTime = temp_time
+            time.sleep(0.001)
 
     def PacketMotionData(self):
         pass
