@@ -139,7 +139,3 @@ class DisplayManagementViewModel(QtCore.QThread):
             for i, data in enumerate(self.ViewDataStorageM.tireDamage):
                 self.Set_Text.emit(F"tyresWear_{i + 1}_Text", F"{int(data)}%")
             self.ViewDataStorageM_Comparison.tireDamage = self.ViewDataStorageM.tireDamage
-
-
-    def map(self, x, in_min, in_max, out_min, out_max):
-        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min

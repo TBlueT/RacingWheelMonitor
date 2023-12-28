@@ -35,7 +35,7 @@ class BarImg:
         if maxRpm!=0:
             self.maxRpm = maxRpm
 
-    def barFill(self, fill:int, reversal: bool = False):
+    def barFill(self, fill:int, reversal: bool = False, color=(100, 100, 0)):
         temp_barLength = int(self.size[0]/self.maxRpm*fill)
 
         if reversal:
@@ -46,7 +46,7 @@ class BarImg:
             end_point_1 = (temp_barLength, int(self.size[1]))
 
         self.__img_bar = np.full((self.size[1], self.size[0], 3), (0, 0, 0), dtype=np.uint8)
-        self.__img_bar = cv2.rectangle(self.__img_bar, start_point_1, end_point_1, (100, 100, 0), -1)
+        self.__img_bar = cv2.rectangle(self.__img_bar, start_point_1, end_point_1, color, -1)
 
 
 
@@ -75,7 +75,8 @@ class ImageProcessing:
 
     def ERS_Store_Fill(self, fill:int):
         if self.ERS_Store:
-            self.ERS_Store.barFill(fill)
+            temp_color = (150, self.map(fill, 0, 4000000, 0, 150), 0)
+            self.ERS_Store.barFill(fill, color=temp_color)
 
     def ERS_Deploted_init(self):
         self.ERS_Deploted = BarImg([self.mainUi.ERS_Deploted.size().width(),self.mainUi.ERS_Deploted.size().height()])
@@ -83,7 +84,8 @@ class ImageProcessing:
 
     def ERS_Deploted_Fill(self, fill:int):
         if self.ERS_Deploted:
-            self.ERS_Deploted.barFill(fill, reversal=True)
+            temp_color = (150, self.map(fill, 0, 4000000, 0, 150),0)
+            self.ERS_Deploted.barFill(fill, reversal=True, color=temp_color)
 
     def RPMBar_GetImg(self):
         return self.RPMBar.img
@@ -91,3 +93,6 @@ class ImageProcessing:
         return self.ERS_Store.img
     def ERS_Deploted_GetImg(self):
         return self.ERS_Deploted.img
+
+    def map(self, x, in_min, in_max, out_min, out_max):
+        return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
