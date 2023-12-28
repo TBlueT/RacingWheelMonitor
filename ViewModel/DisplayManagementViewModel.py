@@ -47,6 +47,11 @@ class DisplayManagementViewModel(QtCore.QThread):
     def PacketCarTelemetryData(self):
         self.ImageP.RPMBar_RpmFill(self.ViewDataStorageM.rpm)
         self.Set_Text.emit("RPMText", F"{self.ViewDataStorageM.rpm}")
+        self.Set_Text.emit("SpeedText", F"{self.ViewDataStorageM.speed}")
+
+        Gear = self.ViewDataStorageM.gear
+        Gear = F"{Gear}" if self.ViewDataStorageM.gear > 0 else "N" if Gear != -1 else "R"
+        self.Set_Text.emit("GearText", F"{Gear}")
         self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
 
     def PacketCarStatusData(self):
