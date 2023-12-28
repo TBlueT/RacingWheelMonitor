@@ -117,6 +117,7 @@ class DisplayManagementViewModel(QtCore.QThread):
 
         if self.ViewDataStorageM.ersDeployed != self.ViewDataStorageM_Comparison.ersDeployed:
             self.ImageP.ERS_Deploted_Fill(self.ViewDataStorageM.ersDeployed)
+            print(self.ViewDataStorageM.ersDeployed)
             self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
             self.ViewDataStorageM_Comparison.ersDeployed = self.ViewDataStorageM.ersDeployed
 
