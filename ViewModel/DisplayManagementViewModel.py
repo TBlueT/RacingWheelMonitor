@@ -42,7 +42,6 @@ class DisplayManagementViewModel(QtCore.QThread):
         self.ImageP.RPMBar_setMaxRpm(self.ViewDataStorageM.maxRpm)
 
     def PacketLapData(self):
-        self.Current_Lap()
         self.CurrentLapTime()
 
 
