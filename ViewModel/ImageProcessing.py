@@ -31,7 +31,7 @@ class BarImg:
             cv2.putText(self.__img, F"{i}", (temp_xPoint*i-(6+int(i/10)*4), int(temp_yPoint*4.5)), cv2.FONT_HERSHEY_SIMPLEX, 0.5, temp_color, 2, cv2.LINE_AA)
             self.__img = cv2.line(self.__img, start_point_2, end_point_2, temp_color, 2)
 
-    def setMaxRpm(self, maxRpm):
+    def setMaxbar(self, maxRpm):
         if self.maxRpm:
             self.maxRpm = maxRpm
 
@@ -60,7 +60,7 @@ class ImageProcessing:
 
     def RPMBar_setMaxRpm(self, maxRpm: int):
         if self.RPMBar:
-            self.RPMBar.setMaxRpm(maxRpm)
+            self.RPMBar.setMaxbar(maxRpm)
 
     def RPMBar_RpmFill(self, fill:int):
         if self.RPMBar:
