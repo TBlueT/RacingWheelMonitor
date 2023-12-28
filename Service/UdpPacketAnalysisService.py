@@ -35,8 +35,7 @@ class UdpPacketAnalysisService(QtCore.QThread):
 
                 elif buf.header.packetId == 2:
                     self.ViewDataStorageM.lap = int(buf.lapData[buf.header.playerCarIndex].currentLapNum)
-                    self.ViewDataStorageM.lapTime = datetime.datetime.utcfromtimestamp(
-                        buf.lapData[buf.header.playerCarIndex].currentLapTime / 1000.0)
+                    self.ViewDataStorageM.lapTime = int(buf.lapData[buf.header.playerCarIndex].currentLapTime)
 
                 elif buf.header.packetId == 7:
                     self.ViewDataStorageM.drsAllowed = int(buf.carStatusData[buf.header.playerCarIndex].drsAllowed)

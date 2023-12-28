@@ -17,7 +17,7 @@ class ViewDataStorageModel:
 
         lap: int = 0
         lapAll: int = 0
-        lapTime = 0
+        lapTime: int = 0
 
         tireDamage = [0, 0, 0, 0]
 
