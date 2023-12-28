@@ -52,4 +52,4 @@ class UdpPacketAnalysisService(QtCore.QThread):
                     self.ViewDataStorageM.tireTemperature = int(buf.carTelemetryData[buf.header.playerCarIndex].tyresSurfaceTemperature)
 
                 elif buf.header.packetId == 10:
-                    self.ViewDataStorageM.tireDamage = int(buf.CarDamageData[buf.header.playerCarIndex].tyresDamage)
+                    self.ViewDataStorageM.tireDamage = int(buf.CarDamageData[buf.header.playerCarIndex].tyresWear)
