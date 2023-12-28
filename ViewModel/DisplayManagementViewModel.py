@@ -63,7 +63,6 @@ class DisplayManagementViewModel(QtCore.QThread):
         self.Set_Text.emit("RPMText", F"{self.ViewDataStorageM.rpm}")
         self.Set_Text.emit("SpeedText", F"{self.ViewDataStorageM.speed}")
 
-
         self.Gear()
         self.Drs()
 
@@ -84,7 +83,6 @@ class DisplayManagementViewModel(QtCore.QThread):
 
     def PacketCarStatusData(self):
         self.Drs_Available()
-
 
         ersDeployMode_text = {0: "None", 1: "Medium", 2: "HotLap", 3: "Overtake"}
         ersDeployMode_num = self.ViewDataStorageM.ersDeployMode
