@@ -11,8 +11,8 @@ class ViewDataStorageModel:
 
 
         maxRpm: int = 0
-        ersStore: int = 0
-        ersDeployed: int = 0
+        ersStore: float = 0
+        ersDeployed: float = 0
         ersDeployMode: int = 0
 
         lap: int = 0
