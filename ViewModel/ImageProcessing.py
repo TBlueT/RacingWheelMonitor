@@ -84,7 +84,7 @@ class ImageProcessing:
 
     def ERS_Deploted_Fill(self, fill:int):
         if self.ERS_Deploted:
-            temp_color = (150, self.map(fill, 0, 4000000, 0, 150),0)
+            temp_color = (150, self.map(fill, 4000000, 0, 0, 150),0)
             self.ERS_Deploted.barFill(fill, reversal=True, color=temp_color)
 
     def RPMBar_GetImg(self):
