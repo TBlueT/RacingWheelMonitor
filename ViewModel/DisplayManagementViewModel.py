@@ -14,7 +14,7 @@ class DisplayManagementViewModel(QtCore.QThread):
         super(DisplayManagementViewModel, self).__init__()
 
         self.ViewDataStorageM = parent.ViewDataStorageM
-        self.ImageP = ImageProcessing(self.mainUi)
+        self.ImageP = ImageProcessing(parent)
 
     # def RPMBar_SetMaxRPM(self, maxRpm:int):
     #     self.ImageP.
