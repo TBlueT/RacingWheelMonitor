@@ -68,11 +68,19 @@ class ImageProcessing:
 
     def ERS_Store_init(self):
         self.ERS_Store = BarImg([self.mainUi.ERS_Store.size().width(),self.mainUi.ERS_Store.size().height()])
+        self.ERS_Store.setMaxbar(100)
+
+    def ERS_Store_Fill(self, fill:int):
+        if self.RPMBar:
+            self.RPMBar.barFill(fill)
 
     def ERS_Deploted_init(self):
         self.ERS_Deploted = BarImg([self.mainUi.ERS_Deploted.size().width(),self.mainUi.ERS_Deploted.size().height()])
+        self.ERS_Deploted.setMaxbar(100)
 
-
+    def ERS_Store_Fill(self, fill:int):
+        if self.RPMBar:
+            self.RPMBar.barFill(fill)
 
     def RPMBar_GetImg(self):
         return self.RPMBar.img
