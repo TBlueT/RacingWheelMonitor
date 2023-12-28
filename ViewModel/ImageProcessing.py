@@ -33,7 +33,8 @@ class BarImg:
 
     def setMaxbar(self, maxRpm):
         if self.maxRpm:
-            self.maxRpm = maxRpm
+            if maxRpm!=0:
+                self.maxRpm = maxRpm
 
     def barFill(self, fill:int):
         temp_barLength = int(self.size[0]/self.maxRpm*fill)
