@@ -14,6 +14,7 @@ class DisplayManagementViewModel(QtCore.QThread):
         super(DisplayManagementViewModel, self).__init__()
 
         self.ViewDataStorageM = parent.ViewDataStorageM
+        self.ViewDataStorageM_Comparison = parent.ViewDataStorageModel()
         self.ImageP = ImageProcessing(parent)
 
     # def RPMBar_SetMaxRPM(self, maxRpm:int):
@@ -59,8 +60,10 @@ class DisplayManagementViewModel(QtCore.QThread):
 
 
     def PacketCarTelemetryData(self):
-        self.ImageP.RPMBar_RpmFill(self.ViewDataStorageM.rpm)
-        self.Set_Text.emit("RPMText", F"{self.ViewDataStorageM.rpm}")
+        if self.Comparison(self.ViewDataStorageM.rpm, self.ViewDataStorageM_Comparison.rpm):
+            self.ImageP.RPMBar_RpmFill(self.ViewDataStorageM.rpm)
+            self.Set_Text.emit("RPMText", F"{self.ViewDataStorageM.rpm}")
+            print(self.ViewDataStorageM_Comparison.rpm)
         self.Set_Text.emit("SpeedText", F"{self.ViewDataStorageM.speed}")
 
         self.Gear()
@@ -108,3 +111,10 @@ class DisplayManagementViewModel(QtCore.QThread):
     def PacketCarDamageData(self):
         for i, data in enumerate(self.ViewDataStorageM.tireDamage):
             self.Set_Text.emit(F"tyresWear_{i + 1}_Text", F"{int(data)}%")
+
+    def Comparison(self, target, previous):
+        if target != previous:
+            previous = target
+            return True
+        else:
+            return False

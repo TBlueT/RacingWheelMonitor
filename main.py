@@ -30,7 +30,6 @@ class mainWindow(QMainWindow, GUI_class):
 
         self.UdpPacketAnalysis_S = UdpPacketAnalysisService(self)
         self.UdpPacketAnalysis_S.start()
-        #print(self.RPMBar.size().width(), self.RPMBar.size().height())
 
 
         self.DisplayManagement_VM.start()
