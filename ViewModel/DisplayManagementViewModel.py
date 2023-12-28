@@ -1,3 +1,5 @@
+import time
+
 from PyQt5 import QtCore, QtGui, QtTest
 
 from ViewModel.ImageProcessing import ImageProcessing
@@ -16,10 +18,14 @@ class DisplayManagementViewModel(QtCore.QThread):
 
     # def RPMBar_SetMaxRPM(self, maxRpm:int):
     #     self.ImageP.
-
+        self.DisplayUpdateTimeSet = 0.05
+        self.DisplayUpdateTime = time.time()
 
     def run(self):
         while True:
-            self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
-            self.Set_Pixmap.emit("ERS_Store", self.ImageP.ERS_Store_GetImg())
-            self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
+            temp_time = time.time()
+            if temp_time - self.DisplayUpdateTime > self.DisplayUpdateTimeSet:
+                self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
+                self.Set_Pixmap.emit("ERS_Store", self.ImageP.ERS_Store_GetImg())
+                self.Set_Pixmap.emit("ERS_Deploted", self.ImageP.ERS_Deploted_GetImg())
+                self.DisplayUpdateTime = temp_time
