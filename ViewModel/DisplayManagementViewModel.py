@@ -55,7 +55,7 @@ class DisplayManagementViewModel(QtCore.QThread):
 
         drs = self.ViewDataStorageM.drs
         if drs:
-            self.Set_StyleSheet.emit("Drs_led", "color: rgb(255, 255, 255);background-color: rgb(0, 255, 0);")
+            self.Set_StyleSheet.emit("DRSLED", "color: rgb(255, 255, 255);background-color: rgb(0, 255, 0);")
 
         self.Set_Pixmap.emit("RPMBar", self.ImageP.RPMBar_GetImg())
 
