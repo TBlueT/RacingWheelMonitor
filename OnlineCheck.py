@@ -56,6 +56,7 @@ class AdvancePreparation(threading.Thread):
             os.system('python3 /home/pi/RacingWheelMonitor_BUp/main.py')
 
 #https://with-rl.tistory.com/entry/%EB%9D%BC%EC%A6%88%EB%B2%A0%EB%A6%AC%ED%8C%8C%EC%9D%B4-APAccess-Point%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+#https://velog.io/@mythos/Raspberry-Pi-Raspberry-Pi-AP-STA-%EB%AA%A8%EB%93%9C-%EC%84%A4%EC%A0%95 AP모드 설정
 class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         temp_query = urlparse(self.path).query
