@@ -1,6 +1,6 @@
 import time, datetime
 
-from PyQt5 import QtCore, QtGui, QtTest
+from PyQt6 import QtCore, QtGui, QtTest
 
 from ViewModel.ImageProcessing import ImageProcessing
 from Model.ViewDataStorageModel import ViewDataStorageModel
@@ -39,8 +39,6 @@ class DisplayManagementViewModel(QtCore.QThread):
             self.PacketCarStatusData()
             self.PacketFinalClassificationData()
             self.PacketCarDamageData()
-
-
 
             time.sleep(0.001)
 
@@ -91,7 +89,6 @@ class DisplayManagementViewModel(QtCore.QThread):
         if self.ViewDataStorageM.speed != self.ViewDataStorageM_Comparison.speed:
             self.Set_Text.emit("SpeedText", F"{self.ViewDataStorageM.speed}")
             self.ViewDataStorageM_Comparison.speed = self.ViewDataStorageM.speed
-
 
         self.Gear()
         self.Drs()

@@ -1,6 +1,6 @@
 import socket, time, datetime
 
-from PyQt5 import QtCore, QtGui, QtTest
+from PyQt6 import QtCore, QtGui, QtTest
 
 from Model import *
 

@@ -453,6 +453,42 @@ color: rgb(255, 255, 255);</string>
                <number>2</number>
               </property>
               <item row="0" column="1">
+               <widget class="QLabel" name="TyresSurfaceTemperature_3_Text">
+                <property name="minimumSize">
+                 <size>
+                  <width>76</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>76</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial</family>
+                  <pointsize>18</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>2</number>
+                </property>
+                <property name="text">
+                 <string>100'C</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
                <widget class="QLabel" name="TyresSurfaceTemperature_1_Text">
                 <property name="minimumSize">
                  <size>
@@ -489,42 +525,6 @@ color: rgb(255, 255, 255);</string>
                </widget>
               </item>
               <item row="0" column="0">
-               <widget class="QLabel" name="tyresWear_1_Text">
-                <property name="minimumSize">
-                 <size>
-                  <width>76</width>
-                  <height>79</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>76</width>
-                  <height>79</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Arial</family>
-                  <pointsize>18</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Box</enum>
-                </property>
-                <property name="lineWidth">
-                 <number>2</number>
-                </property>
-                <property name="text">
-                 <string>100%</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
                <widget class="QLabel" name="tyresWear_3_Text">
                 <property name="minimumSize">
                  <size>
@@ -560,18 +560,18 @@ color: rgb(255, 255, 255);</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
-               <widget class="QLabel" name="TyresSurfaceTemperature_3_Text">
+              <item row="1" column="0">
+               <widget class="QLabel" name="tyresWear_1_Text">
                 <property name="minimumSize">
                  <size>
                   <width>76</width>
-                  <height>78</height>
+                  <height>79</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
                   <width>76</width>
-                  <height>78</height>
+                  <height>79</height>
                  </size>
                 </property>
                 <property name="font">
@@ -589,7 +589,7 @@ color: rgb(255, 255, 255);</string>
                  <number>2</number>
                 </property>
                 <property name="text">
-                 <string>100'C</string>
+                 <string>100%</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -813,6 +813,42 @@ color: rgb(255, 255, 255);</string>
                <number>2</number>
               </property>
               <item row="0" column="0">
+               <widget class="QLabel" name="TyresSurfaceTemperature_4_Text">
+                <property name="minimumSize">
+                 <size>
+                  <width>76</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>76</width>
+                  <height>78</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Arial</family>
+                  <pointsize>18</pointsize>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>2</number>
+                </property>
+                <property name="text">
+                 <string>100'C</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
                <widget class="QLabel" name="TyresSurfaceTemperature_2_Text">
                 <property name="minimumSize">
                  <size>
@@ -849,17 +885,17 @@ color: rgb(255, 255, 255);</string>
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QLabel" name="tyresWear_2_Text">
+               <widget class="QLabel" name="tyresWear_4_Text">
                 <property name="minimumSize">
                  <size>
                   <width>76</width>
-                  <height>79</height>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
                   <width>76</width>
-                  <height>79</height>
+                  <height>78</height>
                  </size>
                 </property>
                 <property name="font">
@@ -884,54 +920,18 @@ color: rgb(255, 255, 255);</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="TyresSurfaceTemperature_4_Text">
-                <property name="minimumSize">
-                 <size>
-                  <width>76</width>
-                  <height>78</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>76</width>
-                  <height>78</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Arial</family>
-                  <pointsize>18</pointsize>
-                  <weight>75</weight>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="frameShape">
-                 <enum>QFrame::Box</enum>
-                </property>
-                <property name="lineWidth">
-                 <number>2</number>
-                </property>
-                <property name="text">
-                 <string>100'C</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="1">
-               <widget class="QLabel" name="tyresWear_4_Text">
+               <widget class="QLabel" name="tyresWear_2_Text">
                 <property name="minimumSize">
                  <size>
                   <width>76</width>
-                  <height>78</height>
+                  <height>79</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
                   <width>76</width>
-                  <height>78</height>
+                  <height>79</height>
                  </size>
                 </property>
                 <property name="font">

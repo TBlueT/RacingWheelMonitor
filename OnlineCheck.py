@@ -1,20 +1,21 @@
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5 import uic
+from PyQt6.QtWidgets import *
+from PyQt6.QtCore import *
+from PyQt6.QtGui import *
+from PyQt6 import uic
 
 import socket, shutil, os, sys, time, threading
 
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse
 
-GUI_class = uic.loadUiType('/home/pi/Preliminaries.ui')[0]
+#GUI_class = uic.loadUiType('/home/pi/Preliminaries.ui')[0]
+GUI_class = uic.loadUiType('View/Preliminaries.ui')[0]
 class mainWindow(QMainWindow, GUI_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.showFullScreen()
-        #self.show()
+        #self.showFullScreen()
+        self.show()
 
         self.AP = AdvancePreparation(self)
         self.AP.start()
@@ -39,6 +40,9 @@ class AdvancePreparation(threading.Thread):
             self.main.SetText("label", "You are not\n connected to the internet!")
             time.sleep(1)
             self.main.SetText("label", "Connect to WiFi\n WiFi name: RacingWheeM\n password: 12345678")
+            httpd = HTTPServer(('0.0.0.0', 80), SimpleHTTPRequestHandler)
+            print(f'Server running on port:{80}')
+            httpd.serve_forever()
         else:
             self.main.SetText("label", "Internet connected")
             time.sleep(1)

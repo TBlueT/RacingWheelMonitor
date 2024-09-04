@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt6.QtGui import QImage, QPixmap
 
 class BarImg:
     def __init__(self, size):
